@@ -14,7 +14,7 @@ description: |
   전해줄 것이다
 
 url:              "https://rouhalee.github.io"
-baseurl:          /
+baseurl:          ""
 
 author:
   name:           이수민

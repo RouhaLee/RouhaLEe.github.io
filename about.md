@@ -1,30 +1,19 @@
 ---
 layout: page
-title: About
+title: 소개페이지
+permalink: /about/
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  안녕하세요! 저는 수민입니다.
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+데이터 시각화와 블로그 운영에 관심이 많고, 다양한 기술을 통해 창의적인 작업을 하는 것을 좋아합니다. 이 블로그에서는 제가 공부한 내용, 프로젝트 경험, 그리고 개인적인 생각을 공유할 예정입니다. 
 
-There are currently two themes built on Poole:
+이 블로그를 통해 독자들과 유익한 정보를 나누고, 새로운 인사이트를 얻어가기를 기대하고 있습니다. 
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+## 관심사
+- 데이터 분석 및 시각화
+- 인공지능과 기계 학습
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+감사합니다!
