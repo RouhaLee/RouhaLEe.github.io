@@ -33,3 +33,6 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
 
+# Site Verification Settings
+webmaster_verifications: 
+  naver: 2f5cfe77c3d2e148ce85d61beaeb0551d3ded250
