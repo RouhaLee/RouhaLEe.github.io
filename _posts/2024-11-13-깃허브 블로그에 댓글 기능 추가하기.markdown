@@ -1,0 +1,72 @@
+---
+layout: post
+title: "블로그에 댓글 기능 추가하기"
+date: 2024-11-13
+categories: posts
+---
+
+## 블로그에 댓글 기능 추가하기
+
+안녕하세요! 이번 포스트에서는 제 블로그에 댓글 기능을 추가하는 과정을 공유해볼까 합니다. **Utterances**를 이용하여 GitHub Issues를 통해 댓글을 관리할 수 있도록 설정해 보았어요.
+
+---
+
+### 1. Utterances란?
+
+**Utterances**는 GitHub Issues를 활용해 댓글을 관리할 수 있는 오픈 소스 댓글 시스템입니다. Disqus와 같은 외부 서비스 대신 GitHub에 댓글이 저장되기 때문에 간단하고 깔끔한 설정이 가능합니다.
+
+### 2. Utterances 설치 및 설정
+
+Utterances를 사용해 블로그에 댓글 기능을 추가하기 위해서는 GitHub 레포지토리에 **Utterances 앱**을 설치해야 합니다.
+
+1. **Utterances 앱 설치**
+   - [Utterances GitHub 앱 페이지](https://github.com/apps/utterances)에 접속해 설치할 계정을 선택합니다.
+   - 댓글을 저장할 레포지토리(예: `RouhaLee/RouhaLee.github.io`)를 선택하고 **Install** 버튼을 클릭합니다.
+
+2. **GitHub Issues 활성화**
+   - 댓글을 저장할 레포지토리의 **Settings > Issues** 항목에서 Issues 기능이 활성화되어 있는지 확인합니다.
+
+### 3. Utterances 스크립트 추가
+
+댓글을 표시할 위치를 설정하기 위해, `_layouts/post.html` 파일에 아래 코드를 추가합니다.
+
+```html
+<div id="utterances-comments"></div>
+<script src="https://utteranc.es/client.js"
+  repo="RouhaLee/RouhaLee.github.io"
+  issue-term="pathname"
+  label="comments"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+```
+
+- **repo**: 댓글을 저장할 레포지토리(여기서는 `RouhaLee/RouhaLee.github.io`) 이름을 입력합니다.
+- **issue-term**: 댓글을 게시글별로 구분하기 위한 방법으로, `pathname`을 사용해 URL별로 댓글이 구분되도록 했습니다.
+- **theme**: Utterances 테마로 `github-light` 외에도 다양한 옵션이 있습니다.
+
+### 4. 댓글 기능 테스트
+
+로컬 서버를 실행하여 새로 추가된 댓글 기능을 테스트할 수 있습니다.
+
+```bash
+bundle exec jekyll serve
+```
+
+로컬 서버가 실행되면 [http://localhost:4000](http://localhost:4000)에서 댓글이 표시되는지 확인해 보세요. 댓글을 작성하면 GitHub Issues에 댓글이 이슈로 저장되며 관리가 가능합니다.
+
+- 댓글 기능 예시  
+  아래 이미지는 댓글 기능이 정상적으로 표시된 모습입니다.
+
+  ![댓글 기능이 추가된 화면](/assets/first_comment.png)
+
+- GitHub Issues에서 댓글 관리  
+  아래 이미지는 댓글이 GitHub Issues에 저장되어 관리되는 모습을 보여줍니다.
+
+  ![GitHub Issues에서 댓글이 관리되는 모습](/assets/comment_issue.png)
+
+
+---
+
+이렇게 해서 GitHub Issues를 이용한 댓글 기능이 블로그에 추가되었습니다! Utterances를 사용하면 GitHub의 생태계를 통해 간단하게 댓글을 관리할 수 있어 깔끔하고 효율적입니다.
