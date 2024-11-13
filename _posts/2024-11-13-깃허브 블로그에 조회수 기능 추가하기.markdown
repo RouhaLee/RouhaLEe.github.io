@@ -1,0 +1,44 @@
+---
+layout: post
+title: "깃허브 블로그에 조회수 기능 추가하기"
+date: 2024-11-13
+categories: posts
+---
+
+## 블로그에 조회수 기능 추가하기
+
+안녕하세요! 이번 포스팅에서는 제 블로그에 **조회수 기능**을 추가하는 과정을 공유하려고 합니다. 이번에 사용한 조회수 카운터는 **busuanzi**라는 간단한 서비스로 구현했으며, GitHub Pages에서 문제없이 작동합니다. 아래에서 과정과 설정 방법을 자세히 소개할게요!
+
+---
+
+### 1. busuanzi란?
+
+**busuanzi**는 별도의 백엔드 설정 없이 페이지 조회수를 표시해주는 무료 서비스입니다. HTML에 간단한 JavaScript 코드만 추가하면 조회수가 표시되기 때문에 매우 간편하게 사용할 수 있습니다.
+
+### 2. busuanzi 설정 방법
+
+**HTML 코드 추가**  
+조회수를 표시할 위치에 아래 코드를 추가합니다. 저는 `_layouts/post.html` 파일에 추가하여 각 게시글마다 조회수가 표시되도록 설정했습니다.
+
+```html
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span> views
+</span>
+```
+
+이 코드에서 busuanzi_value_page_pv는 페이지별 조회수를 불러오는 역할을 합니다. 이 코드를 넣으면 각 페이지별로 조회수가 자동으로 카운트되어 표시됩니다.
+
+### 3. 로컬에서 테스트하기
+busuanzi는 로컬 서버에서 테스트할 때는 조회수가 표시되지 않을 수 있습니다. GitHub Pages에 푸시한 후 실제 배포된 사이트에서 확인하는 것이 좋습니다.
+
+### 4. 조회수 기능 예시
+아래는 busuanzi 조회수 기능이 블로그에 정상적으로 적용된 화면입니다. 5 views 라고 잘 나옵니다.
+
+![조회수 기능 추가 화면](/assets/view.png)
+
+---
+
+이렇게 해서 간단히 **busuanzi**를 이용하여 블로그에 조회수 카운터를 추가할 수 있었습니다. 조회수를 통해 어떤 게시글이 많이 읽히는지 파악하는 데 도움이 되니, 블로그를 운영하는 분들께 추천드립니다!
+
+

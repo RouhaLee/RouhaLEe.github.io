@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "블로그 구축 과정"
+title: "깃허브 블로그 구축 과정"
 date: 2024-11-13
 categories: posts
 ---
