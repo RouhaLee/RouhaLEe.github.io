@@ -36,3 +36,4 @@ gem 'csv'
 gem 'base64'
 gem 'jekyll-paginate'
 gem 'jekyll-gist'
+gem "jekyll-sitemap"
