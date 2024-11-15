@@ -32,6 +32,15 @@ github:
 plugins:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-sitemap
+
+sitemap:
+  exclude:
+    - /404.html
+  include:
+    - /special-page.html
+  url: "https://rouhalee.github.io"
+
 
 # Site Verification Settings
 webmaster_verifications: 
