@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hi, I'm sum :)
+title: Hi, I'm sum ♧
 permalink: /about/
 ---
 <br>
