@@ -3,35 +3,108 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<canvas id="shattering-canvas"></canvas>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+<script>
+  const canvas = document.getElementById('shattering-canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // 캔버스 크기 설정
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  // 유리 조각 데이터
+  let shards = [];
+  
+  // 유리 조각 생성
+  function createShards() {
+    for (let i = 0; i < 50; i++) {
+      const size = Math.random() * 20 + 20; // 유리 조각 크기
+      shards.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        size: size,
+        dx: (Math.random() - 0.5) * 10,
+        dy: (Math.random() - 0.5) * 10,
+        rotation: Math.random() * 360,
+        rotationSpeed: Math.random() * 5,
+        color: 'rgba(255, 255, 255, 1)', // 흰색 세잎클로버
+      });
+    }
+  }
+  
+// 세잎클로버 경로 그리기
+function drawClover(x, y, size) {
+  const heartSize = size/1.2; // 하트 크기
+  const offset = heartSize * 0.8; // 잎 중심 거리 (0.8은 클로버 모양을 위해 조정)
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
+  for (let i = 0; i < 3; i++) {
+    const angle = (i * 120 * Math.PI) / 180; // 120도 간격으로 하트 배치
+    const petalX = x + offset * Math.cos(angle);
+    const petalY = y + offset * Math.sin(angle);
+    drawHeart(petalX, petalY, heartSize, angle + Math.PI / 2); // 꼭짓점을 중심으로 정렬
+  }
+}
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+// 하트 그리기 함수
+function drawHeart(x, y, size, rotation) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation); // 방향 조정
+  ctx.beginPath();
+  ctx.moveTo(0, size / 2); // 꼭짓점 시작 (중앙 하단)
+
+  // 왼쪽 곡선
+  ctx.bezierCurveTo(
+    -size / 2, size / 2,  // 제어점 1
+    -size / 2, -size / 3, // 제어점 2
+    0, -size / 2          // 끝점 (윗부분)
+  );
+
+  // 오른쪽 곡선
+  ctx.bezierCurveTo(
+    size / 2, -size / 3,  // 제어점 1
+    size / 2, size / 2,   // 제어점 2
+    0, size / 2           // 끝점 (중앙 하단)
+  );
+
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+
+  
+  // 유리 조각 렌더링
+  function drawShards() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    shards.forEach((shard) => {
+      ctx.save();
+      ctx.translate(shard.x, shard.y);
+      ctx.rotate((shard.rotation * Math.PI) / 180);
+      ctx.fillStyle = shard.color;
+      drawClover(0, 0, shard.size); // 세잎클로버 그리기
+      ctx.fill();
+      ctx.restore();
+    });
+  }
+  
+  // 애니메이션 업데이트
+  function updateShards() {
+    shards.forEach((shard) => {
+      shard.x += shard.dx;
+      shard.y += shard.dy;
+      shard.rotation += shard.rotationSpeed;
+    });
+  }
+  
+  // 애니메이션 루프
+  function animate() {
+    drawShards();
+    updateShards();
+    requestAnimationFrame(animate);
+  }
+  
+  // 실행
+  createShards();
+  animate();
+</script>

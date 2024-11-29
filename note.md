@@ -3,8 +3,7 @@ layout: page
 title: posts
 permalink: /note/
 ---
-
-<h2>Posts</h2>
+<br>
 <ul>
   {% for post in site.posts %}
     <li>

@@ -9,6 +9,7 @@ permalink:        pretty
 title:            Sum in Blog
 tagline:          'A Jekyll theme'
 description: |
+  <br>
   무언가를 깨트리는 것은<br>
   경계를 부풀리는 <br>
   새로움을 전해줄 것이다
@@ -19,9 +20,11 @@ baseurl:          ""
 author:
   name:           이수민
   email:          "sumofi@naver.com"
-  instagram_username: "@sum.in.s"
 
 paginate:         5
+
+social_links:
+  instagram: "https://www.instagram.com/sum.in.s"
 
 # Custom vars
 version:          2.1.0

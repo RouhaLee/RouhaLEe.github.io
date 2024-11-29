@@ -5,16 +5,31 @@
         <a href="/"> 
           {{ site.title }}
         </a>
+      <br>
       </h1>
       <p class="lead">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="/">Home</a>
-      <a class="sidebar-nav-item{% if page.url == '/about/' %} active{% endif %}" href="/about">about</a>
-      <a class="sidebar-nav-item{% if page.url == '/note/' %} active{% endif %}" href="/note">posts</a>
+      <a class="sidebar-nav-item{% if page.url == '/Who am I/' %} active{% endif %}" href="/about">Who am I</a>
+      <a class="sidebar-nav-item{% if page.url == '/What I wrote/' %} active{% endif %}" href="/note">What I wrote</a>
     </nav>
+
+    <li>
+      <a href="https://www.instagram.com/sum.in.s" target="_blank">
+        <img src="/assets/instagram-icon.png" style="width: 24px; height: 24px;">
+      </a>
+    </li>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
+
+<style>
+  .lead {
+    font-size: 1.1em; /* 기본 크기보다 작게 조정 */
+    line-height: 1.4; /* 줄 간격 조정 */
+    margin: 10px 0; /* 위아래 여백 조정 */
+  }
+  </style>
