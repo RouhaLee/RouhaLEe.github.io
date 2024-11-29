@@ -45,3 +45,72 @@
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
+
+
+  <!-- 마우스 -->
+  <script>
+    function createHeartCursor(color) {
+      // 1. Canvas 생성
+      const canvas = document.createElement('canvas');
+      const size = 24; // 커서 크기
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+    
+      // 2. 하트 그리기
+      function drawHeart(x, y, size, color) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(-30 * Math.PI / 180);
+        ctx.beginPath();
+        ctx.moveTo(0, size / 2); // 꼭짓점 시작 (중앙 하단)
+    
+        // 왼쪽 곡선
+        ctx.bezierCurveTo(
+          -size / 2, size / 2,  // 제어점 1
+          -size / 2, -size / 3, // 제어점 2
+          0, -size / 2          // 끝점 (윗부분)
+        );
+    
+        // 오른쪽 곡선
+        ctx.bezierCurveTo(
+          size / 2, -size / 3,  // 제어점 1
+          size / 2, size / 2,   // 제어점 2
+          0, size / 2           // 끝점 (중앙 하단)
+        );
+    
+        ctx.closePath();
+        ctx.fillStyle = color; // 하트 색상 설정
+        ctx.fill();
+        ctx.restore();
+      }
+    
+      drawHeart(size / 2, size / 2, size * 0.8, color); // 크기를 줄여서 하트 그리기
+    
+      // 3. Canvas를 이미지 URL로 변환
+      return canvas.toDataURL();
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      // 기본 커서 (빨간색 하트)
+      const defaultCursor = createHeartCursor('#AC4142');
+    
+      // 클릭 또는 버튼 위 커서 (파란색 하트)
+      const hoverCursor = createHeartCursor('#D28445');
+    
+      // 기본 커서 설정
+      document.body.style.cursor = `url(${defaultCursor}) 12 12, auto`;
+    
+      // 마우스 hover 및 active 상태에서 커서 변경
+      const style = document.createElement('style');
+      style.innerHTML = `
+        a, button, input, [role="button"] {
+          cursor: url(${hoverCursor}) 12 12, auto !important;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+    </script>
+    
+  
+  
