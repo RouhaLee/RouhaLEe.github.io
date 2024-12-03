@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "게임 개발기 -슈팅게임 만들기"
-date: 2024-11-15
+date: 2024-12-02
 categories: posts
 ---
 
